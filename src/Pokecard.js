@@ -1,10 +1,17 @@
 import React,{Component} from 'react';
 import './Pokecard.css'
-const url ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
+const url ="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
 
+function convertor(num){
+    if(num<=999){
+        return (`00${num}`.slice(-3));
+    }
+    return num;
+}
 class Pokecard extends Component{
     render(){
-        var furl=`${url}${this.props.id}.png`;
+        var number=convertor(this.props.id);
+        var furl=`${url}${number}.png`;
         return(
             <div className="Pokecard">
                 
